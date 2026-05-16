@@ -1,0 +1,22 @@
+services:
+  app:
+    image: node:24-bookworm
+    container_name: cs-career-compass-dev
+    working_dir: /app
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: file:./dev.db
+      NEXT_TELEMETRY_DISABLED: "1"
+    ports:
+      - "3000:3000"
+      - "5555:5555"
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+      - next_cache:/app/.next
+    command: ["sh", "./scripts/docker-dev.sh"]
+
+volumes:
+  node_modules:
+  next_cache:

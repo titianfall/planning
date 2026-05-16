@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  description String
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  jobs        Job[]
+}
+
+model Job {
+  id                 String    @id @default(cuid())
+  categoryId         String
+  slug               String    @unique
+  title              String
+  summary            String
+  description        String
+  skills             String
+  isPublished        Boolean   @default(true)
+  salaryEntryMin     Int?
+  salaryEntryMax     Int?
+  salarySeniorMin    Int?
+  salarySeniorMax    Int?
+  salaryNote         String?
+  salarySourceUrl    String?
+  salaryAsOfYear     Int?
+  entryDifficulty    String
+  interestAreas      String
+  preferredStrengths String
+  workStyles         String
+  skillLevel         Int
+  collaborationLevel Int
+  mathIntensity      Int
+  creativityLevel    Int
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+  category           Category  @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  links              JobLink[]
+
+  @@index([categoryId])
+  @@index([entryDifficulty])
+}
+
+model JobLink {
+  id            String    @id @default(cuid())
+  jobId         String
+  type          String
+  label         String
+  url           String
+  lastCheckedAt DateTime?
+  httpStatus    Int?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  job           Job       @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  @@index([jobId])
+}
