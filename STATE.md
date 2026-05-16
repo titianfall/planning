@@ -1,22 +1,22 @@
 # Project State: CS Career Compass
 
-**Updated:** 2026-05-16
-**Current Phase:** 1
-**Status:** Ready to verify Docker runtime
+**Updated:** 2026-05-17
+**Current Phase:** 2
+**Status:** Phase 2 planned (ready to execute); Phase 3 planned (2 plans)
 
 ## Project Reference
 
 See: .planning/PROJECT.md
 **Core value:** CS 학생이 어떤 직업이 있는지 한눈에 보고, 바로 지원 사이트까지 이동할 수 있어야 한다.
-**Current focus:** Phase 1 — Local Foundation & Data Schema
+**Current focus:** Phase 2 — Public Catalog (Grid + Filter)
 
 ## Current Position
 
 - **Milestone:** v1
-- **Phase:** 1 — Local Foundation & Data Schema
-- **Plan:** none yet
-- **Status:** Docker runtime verification pending
-- **Progress:** [=         ] Phase 1 scaffold created; runtime verification pending
+- **Phase:** 2 — Public Catalog (Grid + Filter)
+- **Plan:** 3 plans ready (02-01, 02-02, 02-03)
+- **Status:** Phase 1 complete; Phase 2 planned and ready to execute
+- **Progress:** [==        ] Phase 1 scaffold + DB complete; Phase 2 planned
 
 ## Phase Progress
 
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md
 |---|-------|--------------|--------|
 | 1 | Local Foundation & Data Schema | FND-04, FND-05, FND-06, FND-07 | Pending |
 | 2 | Public Catalog (Grid + Filter) | CAT-01, CAT-02, CAT-04, FND-03 | Pending |
-| 3 | Job Detail Page | DET-01, DET-02, DET-03, DET-04 | Pending |
+| 3 | Job Detail Page | DET-01, DET-02, DET-03, DET-04 | Planned |
 | 4 | External Links | LNK-01, LNK-02, LNK-03 | Pending |
 | 5 | Keyword Search | CAT-03 | Pending |
 | 6 | SSR/SSG & SEO | FND-01, FND-02 | Pending |

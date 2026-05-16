@@ -83,11 +83,22 @@
 4. A "신입 취업 난이도" indicator is displayed with one of three states (거의 없음 / 보통 / 활발)
 
 **Tasks (high-level):**
-- Implement `app/jobs/[slug]/page.tsx` Server Component with Prisma fetch by slug
-- Add Markdown renderer (e.g. `react-markdown` with constrained allowlist)
-- Build `<SkillTags>`, `<SalaryBlock>`, `<DifficultyBadge>` components
-- Add 404 handling for unknown slugs
-- Verify rendering with multiple seeded jobs
+
+**Wave 1** — Schema migration + dependency install (no dependencies):
+- Rename `entryDifficulty` → `hiringDifficulty` in Prisma schema + migrate
+- Update seed.ts, JobCard.tsx, and all code references
+- Extract `parseJsonArray` to `lib/utils.ts`
+- Install `react-markdown` + `rehype-sanitize`
+
+**Wave 2** *(blocked on Wave 1 completion)*:
+- Build `<MarkdownRenderer>`, `<SkillTags>`, `<SalaryBlock>`, `<HiringDifficultyBadge>` components
+- Replace Phase 2 route stub with full 2-column `app/jobs/[slug]/page.tsx`
+- QA at 375px / 768px / 1280px breakpoints
+
+**Cross-cutting constraints:**
+- All components are Server Components (no 'use client')
+- `isPublished: true` filter mandatory on all Prisma public reads
+- No shadcn/ui — custom Tailwind + CSS variables only
 
 ---
 
@@ -255,9 +266,9 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Local Foundation & Data Schema | 0/0 | Not started | - |
-| 2. Public Catalog (Grid + Filter) | 0/0 | Not started | - |
-| 3. Job Detail Page | 0/0 | Not started | - |
+| 1. Local Foundation & Data Schema | 0/0 | Complete | 2026-05-17 |
+| 2. Public Catalog (Grid + Filter) | 0/3 | Planned | - |
+| 3. Job Detail Page | 0/2 | Planned | - |
 | 4. External Links | 0/0 | Not started | - |
 | 5. Keyword Search | 0/0 | Not started | - |
 | 6. SSR/SSG & SEO | 0/0 | Not started | - |
