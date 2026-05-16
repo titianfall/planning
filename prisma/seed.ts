@@ -28,6 +28,7 @@ const jobs = [
     description:
       "백엔드 엔지니어는 사용자가 보지 못하는 서버 로직과 데이터 흐름을 책임집니다.\n\n- API와 데이터 모델 설계\n- 인증/권한, 결제, 알림 같은 핵심 기능 구현\n- 장애 대응과 성능 개선",
     skills: ["Java", "Spring", "SQL", "REST API", "System Design"],
+    exampleCompanies: ["네이버", "카카오", "쿠팡", "토스"],
     salaryEntryMin: 3200,
     salaryEntryMax: 5000,
     salarySeniorMin: 6000,
@@ -57,6 +58,7 @@ const jobs = [
     description:
       "프론트엔드 엔지니어는 제품의 사용 경험을 코드로 구현합니다.\n\n- React 기반 UI 구현\n- 접근성, 반응형, 성능 최적화\n- 백엔드 API와 상태 관리 연결",
     skills: ["TypeScript", "React", "Next.js", "CSS", "Accessibility"],
+    exampleCompanies: ["카카오", "네이버", "크래프톤", "라인플러스"],
     salaryEntryMin: 3000,
     salaryEntryMax: 4800,
     salarySeniorMin: 5500,
@@ -86,6 +88,7 @@ const jobs = [
     description:
       "DevOps 엔지니어는 개발과 운영 사이의 반복 작업을 자동화합니다.\n\n- CI/CD 파이프라인 구축\n- 컨테이너와 클라우드 운영\n- 로그, 메트릭, 장애 대응 체계 개선",
     skills: ["Linux", "Docker", "Kubernetes", "CI/CD", "AWS"],
+    exampleCompanies: ["네이버클라우드", "카카오", "NHN클라우드", "삼성SDS"],
     salaryEntryMin: 3400,
     salaryEntryMax: 5200,
     salarySeniorMin: 6500,
@@ -114,6 +117,7 @@ const jobs = [
     description:
       "데이터 분석가는 문제를 수치화하고 설명 가능한 인사이트를 만듭니다.\n\n- SQL 기반 데이터 추출\n- 대시보드와 리포트 작성\n- 실험 결과 분석과 지표 설계",
     skills: ["SQL", "Python", "Statistics", "Tableau", "Business Metrics"],
+    exampleCompanies: ["카카오", "네이버", "당근마켓", "쏘카"],
     salaryEntryMin: 3000,
     salaryEntryMax: 4600,
     salarySeniorMin: 5200,
@@ -142,6 +146,7 @@ const jobs = [
     description:
       "머신러닝 엔지니어는 AI 모델을 실제 서비스에서 쓸 수 있게 만듭니다.\n\n- 데이터 전처리와 모델 학습\n- 모델 평가와 실험 관리\n- 추론 API, 배치 파이프라인 구축",
     skills: ["Python", "PyTorch", "ML Pipeline", "MLOps", "Linear Algebra"],
+    exampleCompanies: ["카카오브레인", "네이버 클로바", "삼성리서치", "LG AI연구원"],
     salaryEntryMin: 3600,
     salaryEntryMax: 5600,
     salarySeniorMin: 7000,
@@ -170,6 +175,7 @@ const jobs = [
     description:
       "데이터 엔지니어는 분석과 AI의 기반이 되는 데이터 흐름을 책임집니다.\n\n- ETL/ELT 파이프라인 구축\n- 데이터 웨어하우스와 스키마 관리\n- 배치/스트리밍 처리 안정화",
     skills: ["SQL", "Python", "Airflow", "Spark", "Data Warehouse"],
+    exampleCompanies: ["네이버", "카카오", "SK텔레콤", "현대자동차"],
     salaryEntryMin: 3400,
     salaryEntryMax: 5200,
     salarySeniorMin: 6500,
@@ -218,6 +224,7 @@ async function main() {
         summary: job.summary,
         description: job.description,
         skills: json(job.skills),
+        exampleCompanies: json(job.exampleCompanies),
         salaryEntryMin: job.salaryEntryMin,
         salaryEntryMax: job.salaryEntryMax,
         salarySeniorMin: job.salarySeniorMin,
