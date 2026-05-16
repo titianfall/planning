@@ -1,29 +1,29 @@
 # Project State: CS Career Compass
 
 **Updated:** 2026-05-17
-**Current Phase:** 2
-**Status:** Phase 2 executing (02-01 and 02-02 complete, 02-03 pending); Phase 3 planned (2 plans)
+**Current Phase:** 3
+**Status:** Phase 2 완료 (02-01, 02-02, 02-03 모두 완료); Phase 3 실행 예정 (Job Detail Page)
 
 ## Project Reference
 
 See: .planning/PROJECT.md
 **Core value:** CS 학생이 어떤 직업이 있는지 한눈에 보고, 바로 지원 사이트까지 이동할 수 있어야 한다.
-**Current focus:** Phase 2 — Public Catalog (Grid + Filter)
+**Current focus:** Phase 3 — Job Detail Page
 
 ## Current Position
 
 - **Milestone:** v1
-- **Phase:** 2 — Public Catalog (Grid + Filter)
-- **Plan:** 02-01 and 02-02 complete; 02-03 pending
-- **Status:** Phase 1 complete; Phase 2 executing (2/3 plans done)
-- **Progress:** [====      ] Phase 1 complete; Phase 2 Plans 01-02 complete (schema + seed + UI components)
+- **Phase:** 3 — Job Detail Page
+- **Plan:** Phase 2 모두 완료 (02-01, 02-02, 02-03); Phase 3 대기 중
+- **Status:** Phase 1 complete; Phase 2 complete (3/3 plans done); Phase 3 not started
+- **Progress:** [======    ] Phase 1 + Phase 2 complete (schema + seed + UI components + home page assembly)
 
 ## Phase Progress
 
 | # | Phase | Requirements | Status |
 |---|-------|--------------|--------|
 | 1 | Local Foundation & Data Schema | FND-04, FND-05, FND-06, FND-07 | Pending |
-| 2 | Public Catalog (Grid + Filter) | CAT-01, CAT-02, CAT-04, FND-03 | Pending |
+| 2 | Public Catalog (Grid + Filter) | CAT-01, CAT-02, CAT-04, FND-03 | Complete |
 | 3 | Job Detail Page | DET-01, DET-02, DET-03, DET-04 | Planned |
 | 4 | External Links | LNK-01, LNK-02, LNK-03 | Pending |
 | 5 | Keyword Search | CAT-03 | Pending |
@@ -35,7 +35,7 @@ See: .planning/PROJECT.md
 ## Performance Metrics
 
 - **Phases planned:** 9
-- **Plans executed:** 2 (02-01, 02-02)
+- **Plans executed:** 3 (02-01, 02-02, 02-03)
 - **Verifier runs:** 0
 - **Cycles:** 0
 
@@ -81,5 +81,5 @@ See: .planning/PROJECT.md
 
 ## Session Continuity
 
-**Last action:** Phase 2 Plan 02 (02-02) 완료. CategoryFilter Server Component 신규 구현. JobCard/jobs/[slug] route는 bc2de52에서 이미 구현됨을 확인.
-**Next action:** Phase 2 Plan 03 (02-03) — 홈 카탈로그 페이지 조립 (CategoryFilter + JobCard 통합, URL 파라미터 기반 서버사이드 필터링).
+**Last action:** Phase 2 Plan 03 (02-03) 완료. app/page.tsx를 searchParams Promise 패턴 + 병렬 Prisma 쿼리 + CategoryFilter + 반응형 JobCard 그리드로 재구현. Phase 2 성공 기준 4개 모두 충족.
+**Next action:** Phase 3 (Job Detail Page) — 03-01 (schema/deps) → 03-02 (detail page components + full page) 실행.
