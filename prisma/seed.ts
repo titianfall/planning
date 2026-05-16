@@ -17,18 +17,6 @@ const categories = [
     description: "데이터 분석, 머신러닝, AI 제품화를 다루는 직군입니다.",
     sortOrder: 2
   },
-  {
-    slug: "security-cloud",
-    name: "보안/클라우드",
-    description: "인프라, 클라우드 운영, 보안 안정성을 책임지는 직군입니다.",
-    sortOrder: 3
-  },
-  {
-    slug: "mobile-game",
-    name: "모바일/게임",
-    description: "앱, 게임 클라이언트, 인터랙티브 경험을 만드는 직군입니다.",
-    sortOrder: 4
-  }
 ];
 
 const jobs = [
@@ -201,118 +189,6 @@ const jobs = [
       ["jobBoard", "원티드 데이터 엔지니어 채용", "https://www.wanted.co.kr/search?query=data%20engineer"]
     ]
   },
-  {
-    categorySlug: "security-cloud",
-    slug: "security-engineer",
-    title: "보안 엔지니어",
-    summary: "서비스와 조직의 취약점을 찾고, 보안 사고를 예방하고 대응합니다.",
-    description:
-      "보안 엔지니어는 공격자의 관점과 방어자의 관점을 함께 다룹니다.\n\n- 취약점 진단과 보안 점검\n- 보안 모니터링과 사고 대응\n- 개발/운영 조직의 보안 가이드 제공",
-    skills: ["Network", "Linux", "Web Security", "SIEM", "Threat Modeling"],
-    salaryEntryMin: 3200,
-    salaryEntryMax: 5000,
-    salarySeniorMin: 6000,
-    salarySeniorMax: 10000,
-    salaryNote: "관제, 진단, 제품 보안 등 세부 분야별 차이가 큽니다.",
-    salarySourceUrl: "https://www.saramin.co.kr",
-    salaryAsOfYear: 2026,
-    entryDifficulty: "보통",
-    interestAreas: ["보안", "네트워크", "위협 분석"],
-    preferredStrengths: ["집요함", "분석력", "윤리 의식"],
-    workStyles: ["점검", "대응", "가이드 작성"],
-    skillLevel: 4,
-    collaborationLevel: 4,
-    mathIntensity: 2,
-    creativityLevel: 3,
-    links: [
-      ["jobBoard", "사람인 보안 엔지니어 채용", "https://www.saramin.co.kr/zf_user/search?searchword=%EB%B3%B4%EC%95%88%20%EC%97%94%EC%A7%80%EB%8B%88%EC%96%B4"],
-      ["bootcamp", "KITRI BoB", "https://www.kitribob.kr"]
-    ]
-  },
-  {
-    categorySlug: "security-cloud",
-    slug: "cloud-engineer",
-    title: "클라우드 엔지니어",
-    summary: "AWS, Azure, GCP 같은 클라우드 환경에서 서비스 인프라를 설계하고 운영합니다.",
-    description:
-      "클라우드 엔지니어는 비용, 안정성, 확장성을 함께 고려합니다.\n\n- 클라우드 리소스 설계\n- 네트워크, 권한, 모니터링 설정\n- 비용 최적화와 운영 자동화",
-    skills: ["AWS", "Terraform", "Networking", "Linux", "Monitoring"],
-    salaryEntryMin: 3300,
-    salaryEntryMax: 5200,
-    salarySeniorMin: 6500,
-    salarySeniorMax: 11000,
-    salaryNote: "자격증보다 실제 운영 경험과 장애 대응 경험이 중요합니다.",
-    salarySourceUrl: "https://www.wanted.co.kr",
-    salaryAsOfYear: 2026,
-    entryDifficulty: "보통",
-    interestAreas: ["클라우드", "인프라", "비용 최적화"],
-    preferredStrengths: ["체계성", "문서 읽기", "책임감"],
-    workStyles: ["운영", "자동화", "장애 대응"],
-    skillLevel: 4,
-    collaborationLevel: 4,
-    mathIntensity: 2,
-    creativityLevel: 2,
-    links: [
-      ["jobBoard", "점핏 클라우드 채용", "https://www.jumpit.co.kr/search?keyword=cloud"],
-      ["bootcamp", "Microsoft Learn", "https://learn.microsoft.com/training"]
-    ]
-  },
-  {
-    categorySlug: "mobile-game",
-    slug: "mobile-app-developer",
-    title: "모바일 앱 개발자",
-    summary: "iOS, Android, 크로스플랫폼 앱을 개발하고 모바일 사용자 경험을 개선합니다.",
-    description:
-      "모바일 앱 개발자는 작은 화면과 다양한 기기 환경을 고려합니다.\n\n- 네이티브/크로스플랫폼 앱 구현\n- 앱 성능과 배포 관리\n- 푸시, 결제, 카메라 등 기기 기능 연동",
-    skills: ["Swift", "Kotlin", "React Native", "Flutter", "App Store"],
-    salaryEntryMin: 3000,
-    salaryEntryMax: 4800,
-    salarySeniorMin: 5500,
-    salarySeniorMax: 9500,
-    salaryNote: "서비스 앱, 커머스, 금융 앱 등 도메인에 따라 차이가 큽니다.",
-    salarySourceUrl: "https://www.wanted.co.kr",
-    salaryAsOfYear: 2026,
-    entryDifficulty: "보통",
-    interestAreas: ["모바일 UX", "기기 기능", "제품 개발"],
-    preferredStrengths: ["디테일", "사용자 관찰", "문제 재현"],
-    workStyles: ["제품 협업", "배포 관리", "사용성 개선"],
-    skillLevel: 3,
-    collaborationLevel: 4,
-    mathIntensity: 1,
-    creativityLevel: 4,
-    links: [
-      ["jobBoard", "원티드 모바일 개발 채용", "https://www.wanted.co.kr/search?query=mobile%20developer"],
-      ["bootcamp", "카카오 테크 캠퍼스", "https://www.kakaotechcampus.com"]
-    ]
-  },
-  {
-    categorySlug: "mobile-game",
-    slug: "game-client-developer",
-    title: "게임 클라이언트 개발자",
-    summary: "Unity나 Unreal 기반으로 게임 플레이, UI, 그래픽 표현을 구현합니다.",
-    description:
-      "게임 클라이언트 개발자는 재미와 성능을 함께 다룹니다.\n\n- 게임 로직과 UI 구현\n- 렌더링/물리/입력 처리\n- 디자이너, 아티스트와 콘텐츠 제작 협업",
-    skills: ["C#", "Unity", "C++", "Unreal", "Computer Graphics"],
-    salaryEntryMin: 3000,
-    salaryEntryMax: 4700,
-    salarySeniorMin: 5500,
-    salarySeniorMax: 9500,
-    salaryNote: "장르와 회사 규모에 따라 업무와 보상이 크게 달라집니다.",
-    salarySourceUrl: "https://career.programmers.co.kr",
-    salaryAsOfYear: 2026,
-    entryDifficulty: "활발",
-    interestAreas: ["게임플레이", "그래픽", "인터랙션"],
-    preferredStrengths: ["공간 감각", "창의성", "최적화 감각"],
-    workStyles: ["콘텐츠 협업", "반복 튜닝", "프로토타이핑"],
-    skillLevel: 4,
-    collaborationLevel: 4,
-    mathIntensity: 4,
-    creativityLevel: 5,
-    links: [
-      ["jobBoard", "프로그래머스 게임 개발 채용", "https://career.programmers.co.kr/job?search=%EA%B2%8C%EC%9E%84"],
-      ["bootcamp", "한국콘텐츠진흥원 게임인재원", "https://edu.kocca.kr"]
-    ]
-  }
 ];
 
 async function main() {
