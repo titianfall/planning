@@ -1,13 +1,5 @@
 import { prisma } from "@/lib/db";
-
-function parseList(value: string) {
-  try {
-    const parsed = JSON.parse(value);
-    return Array.isArray(parsed) ? parsed.slice(0, 4) : [];
-  } catch {
-    return [];
-  }
-}
+import { JobCard } from "@/app/components/JobCard";
 
 export default async function Home() {
   const [categories, jobs] = await Promise.all([
@@ -51,35 +43,7 @@ export default async function Home() {
 
         <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {jobs.map((job) => (
-            <article
-              className="flex min-h-64 flex-col justify-between rounded-lg border border-[var(--line)] bg-[var(--panel)] p-5"
-              key={job.id}
-            >
-              <div>
-                <div className="flex items-start justify-between gap-3">
-                  <p className="text-sm font-semibold text-[#246b57]">
-                    {job.category.name}
-                  </p>
-                  <span className="rounded-full bg-[#edf6f1] px-3 py-1 text-xs font-medium text-[#246b57]">
-                    {job.entryDifficulty}
-                  </span>
-                </div>
-                <h2 className="mt-4 text-2xl font-bold">{job.title}</h2>
-                <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
-                  {job.summary}
-                </p>
-              </div>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {parseList(job.skills).map((skill) => (
-                  <span
-                    className="rounded-full border border-[var(--line)] px-3 py-1 text-xs"
-                    key={`${job.id}-${skill}`}
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </article>
+            <JobCard key={job.id} job={job} />
           ))}
         </section>
       </section>
