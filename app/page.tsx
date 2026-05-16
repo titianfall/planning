@@ -1,51 +1,54 @@
+import Link from "next/link";
 import { prisma } from "@/lib/db";
+import { CategoryFilter } from "@/app/components/CategoryFilter";
 import { JobCard } from "@/app/components/JobCard";
 
-export default async function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ category?: string }>;
+}) {
+  const { category: activeCategory } = await searchParams;
+
   const [categories, jobs] = await Promise.all([
     prisma.category.findMany({ orderBy: { sortOrder: "asc" } }),
     prisma.job.findMany({
-      where: { isPublished: true },
-      include: { category: true, links: true },
-      orderBy: [{ category: { sortOrder: "asc" } }, { title: "asc" }]
-    })
+      where: {
+        isPublished: true,
+        ...(activeCategory ? { category: { slug: activeCategory } } : {}),
+      },
+      include: { category: true },
+      orderBy: [{ category: { sortOrder: "asc" } }, { title: "asc" }],
+    }),
   ]);
 
   return (
     <main className="min-h-screen px-5 py-8 sm:px-8 lg:px-12">
-      <section className="mx-auto flex max-w-6xl flex-col gap-7">
-        <header className="flex flex-col gap-4 border-b border-[var(--line)] pb-7">
+      <section className="mx-auto flex max-w-6xl flex-col gap-8">
+        <header className="flex flex-col gap-3 border-b border-[var(--line)] pb-6">
           <p className="text-sm font-semibold text-[#246b57]">CS Career Compass</p>
-          <div className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
-            <h1 className="max-w-3xl text-4xl font-bold leading-tight sm:text-5xl">
-              컴퓨터공학부 학생을 위한 IT 진로 탐색 기반
-            </h1>
-            <p className="text-base leading-7 text-[var(--muted)]">
-              Phase 1은 로컬 데이터 구조와 실제 직군 seed를 검증합니다. 이후 카탈로그,
-              상세 페이지, 관리자 입력, 추천 fit 기능으로 확장됩니다.
-            </p>
-          </div>
+          <h1 className="text-3xl font-bold sm:text-4xl">IT 진로 카탈로그</h1>
+          <p className="text-sm text-[var(--muted)]">
+            컴퓨터공학부 학생을 위한 국내 IT 직군 안내
+          </p>
         </header>
 
-        <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {categories.map((category) => (
-            <article
-              className="rounded-lg border border-[var(--line)] bg-[var(--panel)] p-4"
-              key={category.id}
-            >
-              <p className="text-sm font-semibold text-[#246b57]">{category.name}</p>
-              <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
-                {category.description}
-              </p>
-            </article>
-          ))}
-        </section>
+        <CategoryFilter categories={categories} activeSlug={activeCategory} />
 
-        <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {jobs.map((job) => (
-            <JobCard key={job.id} job={job} />
-          ))}
-        </section>
+        {jobs.length > 0 ? (
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {jobs.map((job) => (
+              <JobCard key={job.id} job={job} />
+            ))}
+          </div>
+        ) : (
+          <div className="flex flex-col items-center gap-3 py-16 text-center">
+            <p className="text-[var(--muted)]">해당 카테고리에 직업이 없습니다.</p>
+            <Link href="/" className="text-sm text-[#246b57] underline">
+              전체 보기
+            </Link>
+          </div>
+        )}
       </section>
     </main>
   );
