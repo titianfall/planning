@@ -55,7 +55,7 @@
 **UI hint:** yes
 
 **Success criteria:**
-1. Visiting `/` shows a responsive card grid of all published jobs grouped by the 4 categories (SW엔지니어, 데이터/AI, 보안/클라우드, 모바일/게임)
+1. 카테고리 카드 그리드로 발행된 모든 직업 표시 (현재 2개 카테고리: SW엔지니어, 데이터/AI)
 2. Clicking a category chip filters the grid to only jobs in that category and updates the URL (`/?category=...`)
 3. Clicking a job card navigates to `/jobs/[slug]` for that job
 4. The grid renders correctly at 375px (mobile), 768px (tablet), and 1280px+ (desktop) with no horizontal scroll or layout breaks
