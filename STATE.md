@@ -2,7 +2,7 @@
 
 **Updated:** 2026-05-17
 **Current Phase:** 2
-**Status:** Phase 2 executing (02-01 complete, 02-02 and 02-03 pending); Phase 3 planned (2 plans)
+**Status:** Phase 2 executing (02-01 and 02-02 complete, 02-03 pending); Phase 3 planned (2 plans)
 
 ## Project Reference
 
@@ -14,9 +14,9 @@ See: .planning/PROJECT.md
 
 - **Milestone:** v1
 - **Phase:** 2 — Public Catalog (Grid + Filter)
-- **Plan:** 02-01 complete; 02-02 and 02-03 pending
-- **Status:** Phase 1 complete; Phase 2 executing (1/3 plans done)
-- **Progress:** [===       ] Phase 1 complete; Phase 2 Plan 01 complete (schema + seed)
+- **Plan:** 02-01 and 02-02 complete; 02-03 pending
+- **Status:** Phase 1 complete; Phase 2 executing (2/3 plans done)
+- **Progress:** [====      ] Phase 1 complete; Phase 2 Plans 01-02 complete (schema + seed + UI components)
 
 ## Phase Progress
 
@@ -35,7 +35,7 @@ See: .planning/PROJECT.md
 ## Performance Metrics
 
 - **Phases planned:** 9
-- **Plans executed:** 1 (02-01)
+- **Plans executed:** 2 (02-01, 02-02)
 - **Verifier runs:** 0
 - **Cycles:** 0
 
@@ -81,5 +81,5 @@ See: .planning/PROJECT.md
 
 ## Session Continuity
 
-**Last action:** Phase 2 Plan 01 (02-01) 완료. exampleCompanies 필드 추가 마이그레이션 및 seed 업데이트. entryDifficulty -> hiringDifficulty 필드명 변경도 함께 처리.
-**Next action:** Phase 2 Plan 02 (02-02) — JobCard 컴포넌트 및 카탈로그 홈 페이지 구현.
+**Last action:** Phase 2 Plan 02 (02-02) 완료. CategoryFilter Server Component 신규 구현. JobCard/jobs/[slug] route는 bc2de52에서 이미 구현됨을 확인.
+**Next action:** Phase 2 Plan 03 (02-03) — 홈 카탈로그 페이지 조립 (CategoryFilter + JobCard 통합, URL 파라미터 기반 서버사이드 필터링).
