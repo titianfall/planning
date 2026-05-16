@@ -34,7 +34,7 @@ model Job {
   salaryNote         String?
   salarySourceUrl    String?
   salaryAsOfYear     Int?
-  entryDifficulty    String
+  hiringDifficulty   String
   interestAreas      String
   preferredStrengths String
   workStyles         String
@@ -49,7 +49,7 @@ model Job {
   links              JobLink[]
 
   @@index([categoryId])
-  @@index([entryDifficulty])
+  @@index([hiringDifficulty])
 }
 
 model JobLink {
