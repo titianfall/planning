@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(docker compose config *)",
+      "Bash(docker compose up *)",
+      "Bash(docker compose *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\HANSUNG\\\\planning\\\\planning\\\\app\" -Recurse | ForEach-Object { $_.FullName })",
+      "PowerShell(git *)",
+      "Skill(gsd-plan-phase)",
+      "Skill(gsd-discuss-phase)"
+    ]
+  }
+}

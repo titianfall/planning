@@ -110,7 +110,7 @@
 
 **Success criteria:**
 1. Each job detail page shows links to relevant 인턴십/채용 sites (사람인, 원티드, 점핏, 프로그래머스 잡스) grouped under "채용 사이트"
-2. Each job detail page shows a "LinkedIn 검색" link that opens a pre-filled LinkedIn job search for the role
+2. Each job detail page shows a "LinkedIn 검색" link that opens a pre-filled LinkedIn job search for the role, using the Korean job title as the query
 3. Each job detail page shows a "관련 부트캠프" section listing curated bootcamp links (우아한테크코스, SSAFY, 네이버 부스트캠프, 카카오 테크 캠퍼스 등) where applicable
 4. (Bundled) All external links open in a new tab with `rel="noopener noreferrer"`
 

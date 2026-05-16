@@ -3,95 +3,82 @@
 > **Audit trail only.** Do not use as input to planning, research, or execution agents.
 > Decisions are captured in CONTEXT.md — this log preserves the alternatives considered.
 
-**Date:** 2026-05-14
+**Date:** 2026-05-17 (Updated — rebased on actual codebase)
 **Phase:** 3-Job-Detail-Page
-**Areas discussed:** 페이지 레이아웃, 연봉/난이도 표시형식, 마크다운 렌더링, 네비게이션
+**Areas discussed:** 연봉 표시 단계, 마크다운 코드 블록, 외부 링크 UI 범위, hiringDifficulty 필드명
 
 ---
 
-## 페이지 레이아웃
+## Context Conflicts Resolved (vs. 2026-05-14 original)
 
-| Option | Description | Selected |
-|--------|-------------|----------|
-| 2-컬럼 (본문 + 사이드바) | 좌측 마크다운 본문, 우측 sidebar (연봉·난이도·태그·링크) | ✓ |
-| 1-컬럼 (순차 스크롤) | 모든 정보 세로 단일 컬럼으로 | |
-
-**User's choice:** 2-컬럼 레이아웃 (데스크탑), 모바일에서는 sidebar가 본문 아래 스택
-**Notes:** 헤더 영역(직업명, 카테고리 배지, 연봉 요약, 예시 고용 회사)은 full-width로 2-컬럼 위에 배치.
-
----
-
-## 연봉/난이도 표시형식
-
-### 연봉
-
-| Option | Description | Selected |
-|--------|-------------|----------|
-| 단일 범위 (salaryMin~salaryMax) | Phase 1 기존 스키마 그대로, 신입 기준 범위 하나 | |
-| 3-단계 (신입/중급/시니어) | 신입/인턴, 1~3년차, 3~5년차 각각 별도 필드 | ✓ |
-
-**User's choice:** 3-단계 연봉 — `salaryEntry`, `salaryMid`, `salarySenior` 필드 추가 (스키마 마이그레이션 필요)
-**Notes:** 출처(sourceUrl) + 연도(asOfYear) 함께 표시. 연봉 크라우드소싱 없음 — 관리자 직접 입력.
-
-### 난이도
-
-| Option | Description | Selected |
-|--------|-------------|----------|
-| 텍스트만 | "신입 채용 활발 / 보통 / 거의없음" 텍스트 | |
-| 색상 배지 | shadcn/ui Badge + 초록/노랑/빨강 | ✓ |
-| 진행 바 | 막대 그래프 형식 | |
-
-**User's choice:** 3-단계 색상 배지 — 활발(초록), 보통(노랑), 거의없음(빨강)
-**Notes:** hiringDifficulty enum 필드 (ACTIVE | MODERATE | RARE).
+| 항목 | 이전 결정 | 실제 코드베이스 | 재결정 |
+|------|-----------|----------------|--------|
+| 연봉 단계 | 3단계 (salaryEntry/Mid/Senior) | 2단계만 존재 (Entry/Senior) | **2단계 유지** |
+| 난이도 필드 | hiringDifficulty enum | entryDifficulty String | **hiringDifficulty String으로 마이그레이션** |
+| Badge 구현 | shadcn/ui Badge | shadcn 미설치 | **커스텀 Tailwind 배지** |
+| 외부 링크 UI | Phase 3에서 UI 마련 | — | **Phase 4로 전위임** |
 
 ---
 
-## 마크다운 렌더링
+## 연봉 표시 단계
 
 | Option | Description | Selected |
 |--------|-------------|----------|
-| react-markdown + 제한 allowlist | H2/H3/bold/italic/목록만 허용, rehype-sanitize | ✓ |
-| 구조화 plain-text | 마크다운 없이 섹션별 텍스트 필드 | |
-| 풀 마크다운 | 코드블록, 이미지 등 모두 허용 | |
+| 2단계 유지 (신입/경력) | 현 스키마 그대로, 마이그레이션 없음, ROADMAP SC3 일치 | ✓ |
+| 3단계 추가 (중급 포함) | salaryMidMin/Max 필드 추가, 마이그레이션 필요 | |
 
-**User's choice:** react-markdown + rehype-sanitize, 제한된 허용 태그
-**Notes:** 코드 블록, HTML 삽입, 이미지 비허용. Phase 8 어드민에서 textarea에 직접 입력.
+**User's choice:** 2단계 유지
+**Notes:** `salaryEntryMin/Max` + `salarySeniorMin/Max`. 스키마 변경 없음.
 
 ---
 
-## 네비게이션
+## 마크다운 코드 블록
 
 | Option | Description | Selected |
 |--------|-------------|----------|
-| 브라우저 뒤로가기만 | 별도 버튼 없음 | |
-| "← 직업 목록" 버튼 | 상단에 카탈로그 홈으로 링크 | ✓ |
-| 상단 breadcrumb | Home > 카테고리 > 직업명 | |
+| Inline code만 허용 | 백틱(`) 허용, 코드블록(```) 차단 | ✓ |
+| 코드블록 전체 허용 | 인라인 + 펜스드 코드블록 모두 허용 | |
+| 모두 차단 | H2/H3/bold/italic/목록만 | |
 
-**User's choice:** "← 직업 목록" 버튼 (상단)
-**Notes:** Link href="/" 서버 네비게이션.
-
-### 관련 직업
-
-| Option | Description | Selected |
-|--------|-------------|----------|
-| 없음 | 상세 페이지에 관련 직업 없음 | |
-| 같은 카테고리 max 3 | 하단 "관련 직업" 섹션, JobCard 재사용 | ✓ |
-| 추천 알고리즘 기반 | 맞춤 추천 — v1 범위 외 | |
-
-**User's choice:** 같은 카테고리에서 최대 3개, JobCard 컴포넌트 재사용
-**Notes:** 같은 카테고리 직업이 없을 때 empty state는 Claude 재량.
+**User's choice:** Inline code만 허용
+**Notes:** rehype-sanitize allowlist에 `code` 포함, `pre` 제외.
 
 ---
+
+## 외부 링크 UI 범위
+
+| Option | Description | Selected |
+|--------|-------------|----------|
+| Phase 4로 전위임 | Phase 3은 DET-01~04만 집중 | ✓ |
+| Phase 3에서 UI 마련 | 빈 링크 섹션 placeholder 포함 | |
+
+**User's choice:** Phase 4로 전위임
+**Notes:** Phase 3 domain boundary에서 링크 섹션 제거.
+
+---
+
+## hiringDifficulty 필드명
+
+| Option | Description | Selected |
+|--------|-------------|----------|
+| entryDifficulty 그대로 | 스키마 변경 없음 | |
+| hiringDifficulty로 변경 | 마이그레이션 + seed 업데이트 필요 | ✓ |
+
+**User's choice:** hiringDifficulty로 마이그레이션
+**Notes:** 값 ("활발"/"보통"/"거의 없음") 변경 없음. 필드명만 변경.
+
+---
+
+## Carried Forward (재확인 없이 유지)
+
+- D-01: 2-컬럼 레이아웃 (데스크탑), 모바일 스택
+- D-08: react-markdown + rehype-sanitize
+- D-11: "← 직업 목록" 버튼 (Link href="/")
+- D-12: 관련 직업 섹션 (같은 카테고리 max 3, JobCard 재사용)
 
 ## Claude's Discretion
 
-- sidebar 내 섹션 구분선 및 간격
-- 연봉 3단계 컴포넌트 내부 레이아웃 (테이블 vs. 카드 vs. 리스트)
-- "관련 직업" empty state 디자인
-
-## Deferred Ideas
-
-- 즐겨찾기/저장 기능 — 공개 사용자 계정 없음
-- 연봉 그래프 시각화 — v2
-- OG 이미지 자동 생성 — Phase 6
-- 외부 링크 클릭 추적 — v2 Analytics
+- sidebar 섹션 구분선 및 여백
+- 연봉 2단계 내부 레이아웃
+- "관련 직업" empty state 처리
+- 인라인 코드 스타일링
