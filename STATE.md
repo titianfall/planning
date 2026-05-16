@@ -2,7 +2,7 @@
 
 **Updated:** 2026-05-17
 **Current Phase:** 2
-**Status:** Phase 2 planned (ready to execute); Phase 3 planned (2 plans)
+**Status:** Phase 2 executing (02-01 complete, 02-02 and 02-03 pending); Phase 3 planned (2 plans)
 
 ## Project Reference
 
@@ -14,9 +14,9 @@ See: .planning/PROJECT.md
 
 - **Milestone:** v1
 - **Phase:** 2 — Public Catalog (Grid + Filter)
-- **Plan:** 3 plans ready (02-01, 02-02, 02-03)
-- **Status:** Phase 1 complete; Phase 2 planned and ready to execute
-- **Progress:** [==        ] Phase 1 scaffold + DB complete; Phase 2 planned
+- **Plan:** 02-01 complete; 02-02 and 02-03 pending
+- **Status:** Phase 1 complete; Phase 2 executing (1/3 plans done)
+- **Progress:** [===       ] Phase 1 complete; Phase 2 Plan 01 complete (schema + seed)
 
 ## Phase Progress
 
@@ -35,7 +35,7 @@ See: .planning/PROJECT.md
 ## Performance Metrics
 
 - **Phases planned:** 9
-- **Plans executed:** 0
+- **Plans executed:** 1 (02-01)
 - **Verifier runs:** 0
 - **Cycles:** 0
 
@@ -81,5 +81,5 @@ See: .planning/PROJECT.md
 
 ## Session Continuity
 
-**Last action:** Phase 1 scaffold, Prisma schema/seed, Docker dev files, and handoff document were created. Docker config is valid, but final container runtime verification is blocked by Docker Desktop storage I/O errors.
-**Next action:** Read `NEXT_WORK.md`, run `docker compose up`, and verify Prisma migration/seed plus Next dev server at `http://localhost:3000`.
+**Last action:** Phase 2 Plan 01 (02-01) 완료. exampleCompanies 필드 추가 마이그레이션 및 seed 업데이트. entryDifficulty -> hiringDifficulty 필드명 변경도 함께 처리.
+**Next action:** Phase 2 Plan 02 (02-02) — JobCard 컴포넌트 및 카탈로그 홈 페이지 구현.

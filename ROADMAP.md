@@ -267,7 +267,7 @@
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Local Foundation & Data Schema | 0/0 | Complete | 2026-05-17 |
-| 2. Public Catalog (Grid + Filter) | 0/3 | Planned | - |
+| 2. Public Catalog (Grid + Filter) | 1/3 | In Progress | - |
 | 3. Job Detail Page | 0/2 | Planned | - |
 | 4. External Links | 0/0 | Not started | - |
 | 5. Keyword Search | 0/0 | Not started | - |
