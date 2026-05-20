@@ -2,7 +2,7 @@
 
 **Updated:** 2026-05-20
 **Current Phase:** 3
-**Status:** Phase 2 완료 (02-01, 02-02, 02-03 모두 완료); Phase 3 실행 예정 (Job Detail Page)
+**Status:** Phase 2 완료 (02-01, 02-02, 02-03 모두 완료); Phase 3 실행 예정 (Job Detail Page); Phase 4·5 컨텍스트 확보됨
 
 ## Project Reference
 
@@ -81,6 +81,6 @@ See: .planning/PROJECT.md
 
 ## Session Continuity
 
-**Last action:** Phase 4 (External Links) discuss-phase 완료. 04-CONTEXT.md / 04-DISCUSSION-LOG.md 작성 — LinkedIn 동적 생성, 채용 사이트 공통 4개 동적 생성 + 부트캠프 직업별 큐레이션, 2-컬럼 아래 full-width 섹션, 버튼/칩 표시 결정.
-**Next action:** Phase 3 (Job Detail Page) 실행 — 03-01 (schema/deps) → 03-02. Phase 4는 컨텍스트 확보됨, 플랜 단계 대기 (`/gsd:plan-phase 4`).
-**Resume file:** phases/04-external-links/04-CONTEXT.md
+**Last action:** Phase 5 (Keyword Search) discuss-phase 완료. 05-CONTEXT.md / 05-DISCUSSION-LOG.md 작성 — 입력 즉시 검색(디바운스, 클라이언트 컴포넌트), 검색 대상 직업명+기술태그, 검색창을 카테고리 필터 위 배치, 검색+카테고리 AND 결합 결정.
+**Next action:** Phase 3 (Job Detail Page) 실행 — 03-01 (schema/deps) → 03-02. Phase 4·5는 컨텍스트 확보됨, 플랜 단계 대기 (`/gsd:plan-phase 5`).
+**Resume file:** phases/05-keyword-search/05-CONTEXT.md
