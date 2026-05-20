@@ -81,6 +81,6 @@ See: .planning/PROJECT.md
 
 ## Session Continuity
 
-**Last action:** Phase 6 (SSR/SSG & SEO) discuss-phase 완료. 06-CONTEXT.md / 06-DISCUSSION-LOG.md 작성 — /jobs/[slug] SSG+ISR(generateStaticParams, dynamicParams true, 온디맨드 전용 revalidate), 공용 정적 OG 이미지, title `{직업명} - 기술, 연봉, 진로 | CS Career Compass`, description=job.summary, metadataBase=NEXT_PUBLIC_SITE_URL+localhost 폴백, robots에 /admin·/auth 선반영 disallow, sitemap=/+발행 직업, JSON-LD Occupation 포함 결정.
-**Next action:** Phase 3 (Job Detail Page) 실행 — 03-01 (schema/deps) → 03-02. Phase 4·5·6은 컨텍스트 확보됨, 플랜 단계 대기 (`/gsd:plan-phase 6`).
-**Resume file:** phases/06-ssr-ssg-seo/06-CONTEXT.md
+**Last action:** Phase 7 (Admin Authentication) discuss-phase 완료. 논의 결과 **페이즈 폐기 결정** — 사이트를 로컬 전용으로 종료(Vercel 배포·Supabase 도입 없음), 어드민 영역에 인증 게이트 없음. 07-CONTEXT.md / 07-DISCUSSION-LOG.md에 폐기 결정 기록. ADM-01 범위 제외, ROADMAP Phase 7 제거/병합 및 Phase 9 "Production Deploy" 태스크 제거 필요.
+**Next action:** ROADMAP 수술 — `/gsd:phase`로 Phase 7 제거/병합, Phase 9에서 배포 태스크·성공기준 제거. REQUIREMENTS.md에서 ADM-01 → Out of Scope. 이후 Phase 3 (Job Detail Page) 실행 — 03-01 (schema/deps) → 03-02. Phase 4·5·6은 컨텍스트 확보됨, 플랜 단계 대기.
+**Resume file:** phases/07-admin-authentication/07-CONTEXT.md
