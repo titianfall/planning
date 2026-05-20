@@ -1,6 +1,6 @@
 # Project State: CS Career Compass
 
-**Updated:** 2026-05-17
+**Updated:** 2026-05-20
 **Current Phase:** 3
 **Status:** Phase 2 완료 (02-01, 02-02, 02-03 모두 완료); Phase 3 실행 예정 (Job Detail Page)
 
@@ -81,5 +81,6 @@ See: .planning/PROJECT.md
 
 ## Session Continuity
 
-**Last action:** Phase 2 Plan 03 (02-03) 완료. app/page.tsx를 searchParams Promise 패턴 + 병렬 Prisma 쿼리 + CategoryFilter + 반응형 JobCard 그리드로 재구현. Phase 2 성공 기준 4개 모두 충족.
-**Next action:** Phase 3 (Job Detail Page) — 03-01 (schema/deps) → 03-02 (detail page components + full page) 실행.
+**Last action:** Phase 4 (External Links) discuss-phase 완료. 04-CONTEXT.md / 04-DISCUSSION-LOG.md 작성 — LinkedIn 동적 생성, 채용 사이트 공통 4개 동적 생성 + 부트캠프 직업별 큐레이션, 2-컬럼 아래 full-width 섹션, 버튼/칩 표시 결정.
+**Next action:** Phase 3 (Job Detail Page) 실행 — 03-01 (schema/deps) → 03-02. Phase 4는 컨텍스트 확보됨, 플랜 단계 대기 (`/gsd:plan-phase 4`).
+**Resume file:** phases/04-external-links/04-CONTEXT.md
