@@ -27,7 +27,6 @@
 
 ### Admin (관리자)
 
-- [ ] **ADM-01**: 관리자가 로그인(매직링크 이메일)으로 어드민 영역에 접근할 수 있다
 - [ ] **ADM-02**: 관리자가 기본 대시보드에서 등록된 직업 수, 최근 수정 항목을 볼 수 있다
 - [ ] **ADM-03**: 관리자가 직업을 새로 입력할 수 있다 (제목, 카테고리, 설명, 기술 태그, 연봉, 난이도)
 - [ ] **ADM-04**: 관리자가 기존 직업 정보를 수정할 수 있다
@@ -75,6 +74,7 @@
 | 포럼/커뮤니티 기능 | OKKY, 인프런 커뮤니티 등 기존 채널로 충분 |
 | 모바일 앱 | 웹 우선, 모바일 앱은 v2+ |
 | 동영상 콘텐츠 호스팅 | YouTube/Inflearn으로 링크 아웃 |
+| 어드민 인증/로그인 (ADM-01) | 사이트를 로컬 전용으로 종료 — Vercel 배포·Supabase 도입 없음, 어드민 영역에 인증 게이트 불필요 (Phase 7 폐기 결정) |
 
 **Note:** 맞춤 추천 알고리즘 자체는 v1 범위 밖이지만, 향후 추천 기능을 막지 않도록 직업별 fit 메타데이터는 Phase 1 schema에 포함한다.
 
@@ -93,12 +93,11 @@
 | LNK-01 | Phase 4 | Pending |
 | LNK-02 | Phase 4 | Pending |
 | LNK-03 | Phase 4 | Pending |
-| ADM-01 | Phase 7 | Pending |
-| ADM-02 | Phase 8 | Pending |
-| ADM-03 | Phase 8 | Pending |
-| ADM-04 | Phase 8 | Pending |
-| ADM-05 | Phase 8 | Pending |
-| ADM-06 | Phase 9 | Pending |
+| ADM-02 | Phase 7 | Pending |
+| ADM-03 | Phase 7 | Pending |
+| ADM-04 | Phase 7 | Pending |
+| ADM-05 | Phase 7 | Pending |
+| ADM-06 | Phase 8 | Pending |
 | FND-01 | Phase 6 | Pending |
 | FND-02 | Phase 6 | Pending |
 | FND-03 | Phase 2 | Pending |
@@ -108,10 +107,10 @@
 | FND-07 | Phase 1 | Pending |
 
 **Coverage:**
-- v1 requirements: 24 total
-- Mapped to phases: 24
+- v1 requirements: 23 total
+- Mapped to phases: 23
 - Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-05-14*
-*Last updated: 2026-05-14 after Phase 1 local foundation revision*
+*Last updated: 2026-05-20 — Phase 7 (Admin Authentication) 제거, ADM-01 Out of Scope 처리*

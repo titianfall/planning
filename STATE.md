@@ -28,13 +28,12 @@ See: .planning/PROJECT.md
 | 4 | External Links | LNK-01, LNK-02, LNK-03 | Pending |
 | 5 | Keyword Search | CAT-03 | Pending |
 | 6 | SSR/SSG & SEO | FND-01, FND-02 | Pending |
-| 7 | Admin Authentication | ADM-01 | Pending |
-| 8 | Admin Dashboard & Job CRUD | ADM-02, ADM-03, ADM-04, ADM-05 | Pending |
-| 9 | Admin Link Management & Deploy | ADM-06 | Pending |
+| 7 | Admin Dashboard & Job CRUD | ADM-02, ADM-03, ADM-04, ADM-05 | Pending |
+| 8 | Admin Link Management & Deploy | ADM-06 | Pending |
 
 ## Performance Metrics
 
-- **Phases planned:** 9
+- **Phases planned:** 8
 - **Plans executed:** 3 (02-01, 02-02, 02-03)
 - **Verifier runs:** 0
 - **Cycles:** 0
@@ -82,5 +81,5 @@ See: .planning/PROJECT.md
 ## Session Continuity
 
 **Last action:** Phase 7 (Admin Authentication) discuss-phase 완료. 논의 결과 **페이즈 폐기 결정** — 사이트를 로컬 전용으로 종료(Vercel 배포·Supabase 도입 없음), 어드민 영역에 인증 게이트 없음. 07-CONTEXT.md / 07-DISCUSSION-LOG.md에 폐기 결정 기록. ADM-01 범위 제외, ROADMAP Phase 7 제거/병합 및 Phase 9 "Production Deploy" 태스크 제거 필요.
-**Next action:** ROADMAP 수술 — `/gsd:phase`로 Phase 7 제거/병합, Phase 9에서 배포 태스크·성공기준 제거. REQUIREMENTS.md에서 ADM-01 → Out of Scope. 이후 Phase 3 (Job Detail Page) 실행 — 03-01 (schema/deps) → 03-02. Phase 4·5·6은 컨텍스트 확보됨, 플랜 단계 대기.
-**Resume file:** phases/07-admin-authentication/07-CONTEXT.md
+**Next action:** Phase 7 (구 Admin Authentication) ROADMAP에서 제거 완료 — 이전 Phase 8·9는 7·8로 재번호됨. 잔여 작업: 신 Phase 8 (Admin Link Management & Deploy)에서 Vercel 배포 태스크·성공기준 제거, REQUIREMENTS.md에서 ADM-01 → Out of Scope 표시. 이후 Phase 3 (Job Detail Page) 실행 — 03-01 (schema/deps) → 03-02. Phase 4·5·6은 컨텍스트 확보됨, 플랜 단계 대기.
+**Resume file:** phases/03-job-detail-page/03-CONTEXT.md

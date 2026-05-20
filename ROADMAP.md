@@ -1,7 +1,7 @@
 # Roadmap: CS Career Compass
 
 **Generated:** 2026-05-14
-**Phases:** 9 | **Requirements:** 24 | **Coverage:** 100%
+**Phases:** 8 | **Requirements:** 23 | **Coverage:** 100%
 
 ## Overview
 
@@ -13,9 +13,8 @@
 | 4 | External Links | Visitor can click out to job boards, LinkedIn, and bootcamps from a job page | LNK-01, LNK-02, LNK-03 | 3 criteria |
 | 5 | Keyword Search | Visitor can search jobs by keyword across the catalog | CAT-03 | 3 criteria |
 | 6 | SSR/SSG & SEO | Public pages are server-rendered with per-job SEO metadata and a sitemap | FND-01, FND-02 | 4 criteria |
-| 7 | Admin Authentication | A single allowlisted admin can log in via magic link and reach `/admin/*` | ADM-01 | 4 criteria |
-| 8 | Admin Dashboard & Job CRUD | Admin can view counts, create, edit, and delete jobs through a UI | ADM-02, ADM-03, ADM-04, ADM-05 | 5 criteria |
-| 9 | Admin Link Management & Deploy | Admin can manage external links per job; site is live on Vercel | ADM-06 | 4 criteria |
+| 7 | Admin Dashboard & Job CRUD | Admin can view counts, create, edit, and delete jobs through a UI | ADM-02, ADM-03, ADM-04, ADM-05 | 5 criteria |
+| 8 | Admin Link Management | Admin can manage external links per job | ADM-06 | 3 criteria |
 
 ## Phase Details
 
@@ -151,7 +150,7 @@
 1. `view-source:` on `/` and `/jobs/[slug]` shows fully rendered HTML with job content (not just an empty React shell)
 2. Each `/jobs/[slug]` exports `generateMetadata` returning a unique `title`, `description`, and `openGraph` block derived from the job
 3. `/sitemap.xml` lists `/` and one entry per published job with `lastmod` from `updatedAt`
-4. `revalidatePath` is invoked from admin write actions so changes appear within one refresh (ISR cache invalidation wired, even though admin writes land in Phase 8)
+4. `revalidatePath` is invoked from admin write actions so changes appear within one refresh (ISR cache invalidation wired, even though admin writes land in Phase 7)
 
 **Tasks (high-level):**
 - Confirm Server Components are used end-to-end on public routes; remove any accidental `'use client'`
@@ -162,29 +161,7 @@
 
 ---
 
-### Phase 7: Admin Authentication
-
-**Goal:** A single allowlisted admin email can sign in via Supabase magic link and reach gated `/admin/*` routes; everyone else is blocked.
-**Requirements:** ADM-01
-**UI hint:** yes
-
-**Success criteria:**
-1. Visiting `/admin` while logged out redirects to `/admin/login` which sends a magic link to the entered email
-2. Clicking the emailed link returns the user to `/admin` with an authenticated session
-3. Visiting `/admin/*` with a session whose email is not the allowlisted `ADMIN_EMAIL` results in a 403 (not just middleware bounce)
-4. Every Server Action in `/admin/*` re-verifies `session.user.email === ADMIN_EMAIL` server-side before executing
-
-**Tasks (high-level):**
-- Install `@supabase/ssr` and configure Supabase Auth client (server + browser variants)
-- Implement `/admin/login` page with magic link form
-- Implement OAuth callback handler at `/auth/callback`
-- Add `middleware.ts` matching `/admin/:path*` that checks session and admin email
-- Build shared `requireAdmin()` guard for Server Actions and assert in a test action
-- Document `ADMIN_EMAIL` env var in `.env.example`
-
----
-
-### Phase 8: Admin Dashboard & Job CRUD
+### Phase 7: Admin Dashboard & Job CRUD
 
 **Goal:** Admin can see catalog state, create new jobs, edit existing ones, and delete with a confirmation step — all from a custom shadcn/ui interface.
 **Requirements:** ADM-02, ADM-03, ADM-04, ADM-05
@@ -207,25 +184,22 @@
 
 ---
 
-### Phase 9: Admin Link Management & Production Deploy
+### Phase 8: Admin Link Management
 
-**Goal:** Admin can manage each job's external links, and the entire site is deployed live on Vercel for real users.
+**Goal:** Admin can manage each job's external links.
 **Requirements:** ADM-06
 **UI hint:** yes
 
 **Success criteria:**
 1. The job edit page contains a "외부 링크" section listing all `JobLink` rows with type (job board / linkedin / bootcamp), label, and URL
 2. Admin can add a new link (type, label, URL), edit any field inline, and delete a link with confirmation — each action persists via a Server Action and the public detail page reflects the change after refresh
-3. The site is deployed on Vercel (Seoul `icn1`) with the production database, `ADMIN_EMAIL`, and Supabase keys configured as env vars, and a custom domain or `*.vercel.app` URL responding 200 to `/`, `/jobs/[slug]`, and `/sitemap.xml`
-4. A short README documents local dev, env vars, seed, deploy, and admin login flow
+3. A short README documents local dev, env vars, seed, and operations
 
 **Tasks (high-level):**
 - Build `<JobLinksEditor>` component (CRUD on `JobLink` rows)
-- Implement `addLink`, `updateLink`, `deleteLink` Server Actions with admin guard + `revalidatePath('/jobs/[slug]')`
-- Configure Vercel project, link Supabase, set env vars
-- Run production migration and seed (or import) initial data
-- Smoke-test public + admin flows on production URL
-- Write `README.md` with setup, scripts, deploy, and operations notes
+- Implement `addLink`, `updateLink`, `deleteLink` Server Actions with `revalidatePath('/jobs/[slug]')`
+- Smoke-test public + admin flows locally
+- Write `README.md` with setup, scripts, and operations notes
 
 ---
 
@@ -251,14 +225,13 @@
 | CAT-03 | Phase 5 |
 | FND-01 | Phase 6 |
 | FND-02 | Phase 6 |
-| ADM-01 | Phase 7 |
-| ADM-02 | Phase 8 |
-| ADM-03 | Phase 8 |
-| ADM-04 | Phase 8 |
-| ADM-05 | Phase 8 |
-| ADM-06 | Phase 9 |
+| ADM-02 | Phase 7 |
+| ADM-03 | Phase 7 |
+| ADM-04 | Phase 7 |
+| ADM-05 | Phase 7 |
+| ADM-06 | Phase 8 |
 
-**Total mapped:** 24/24 (100%)
+**Total mapped:** 23/23 (100%)
 **Orphans:** 0
 **Duplicates:** 0
 
@@ -272,6 +245,5 @@
 | 4. External Links | 0/0 | Not started | - |
 | 5. Keyword Search | 0/0 | Not started | - |
 | 6. SSR/SSG & SEO | 0/0 | Not started | - |
-| 7. Admin Authentication | 0/0 | Not started | - |
-| 8. Admin Dashboard & Job CRUD | 0/0 | Not started | - |
-| 9. Admin Link Management & Deploy | 0/0 | Not started | - |
+| 7. Admin Dashboard & Job CRUD | 0/0 | Not started | - |
+| 8. Admin Link Management | 0/0 | Not started | - |
