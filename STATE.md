@@ -2,7 +2,7 @@
 
 **Updated:** 2026-05-20
 **Current Phase:** 3
-**Status:** Phase 2 완료 (02-01, 02-02, 02-03 모두 완료); Phase 3 실행 예정 (Job Detail Page); Phase 4·5 컨텍스트 확보됨
+**Status:** Phase 2 완료 (02-01, 02-02, 02-03 모두 완료); Phase 3 실행 예정 (Job Detail Page); Phase 4·5·6 컨텍스트 확보됨
 
 ## Project Reference
 
@@ -81,6 +81,6 @@ See: .planning/PROJECT.md
 
 ## Session Continuity
 
-**Last action:** Phase 5 (Keyword Search) discuss-phase 완료. 05-CONTEXT.md / 05-DISCUSSION-LOG.md 작성 — 입력 즉시 검색(디바운스, 클라이언트 컴포넌트), 검색 대상 직업명+기술태그, 검색창을 카테고리 필터 위 배치, 검색+카테고리 AND 결합 결정.
-**Next action:** Phase 3 (Job Detail Page) 실행 — 03-01 (schema/deps) → 03-02. Phase 4·5는 컨텍스트 확보됨, 플랜 단계 대기 (`/gsd:plan-phase 5`).
-**Resume file:** phases/05-keyword-search/05-CONTEXT.md
+**Last action:** Phase 6 (SSR/SSG & SEO) discuss-phase 완료. 06-CONTEXT.md / 06-DISCUSSION-LOG.md 작성 — /jobs/[slug] SSG+ISR(generateStaticParams, dynamicParams true, 온디맨드 전용 revalidate), 공용 정적 OG 이미지, title `{직업명} - 기술, 연봉, 진로 | CS Career Compass`, description=job.summary, metadataBase=NEXT_PUBLIC_SITE_URL+localhost 폴백, robots에 /admin·/auth 선반영 disallow, sitemap=/+발행 직업, JSON-LD Occupation 포함 결정.
+**Next action:** Phase 3 (Job Detail Page) 실행 — 03-01 (schema/deps) → 03-02. Phase 4·5·6은 컨텍스트 확보됨, 플랜 단계 대기 (`/gsd:plan-phase 6`).
+**Resume file:** phases/06-ssr-ssg-seo/06-CONTEXT.md
